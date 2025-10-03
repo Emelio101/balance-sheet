@@ -1,0 +1,11 @@
+{
+    "@@locale": "en",
+    "dashboardTitle": "Dashboard",
+    "@dashboardTitle": {
+        "description": "Title shown in the Dashboard page"
+    },
+    "totalBalance": "Total Balance",
+    "@totalBalance": {
+        "description": "Label for total balance card"
+    }
+}
