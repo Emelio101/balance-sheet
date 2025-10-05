@@ -14,7 +14,7 @@ Want to see the app in action without building from source? Download the product
 
 👉 **[Download v0.0.1 Demo APK](https://github.com/Emelio101/balance-sheet/releases/download/v0.0.1/balance_sheet_v0.0.1_demo.apk)**
 
-> **Note:** This is a **production-flavor debug build** (v0.0.1) for demo purposes. As it's not from the Play Store, Android will require you to allow installation from "Unknown Sources". Perfect for testing and portfolio review!
+> **Note:** This is a **production-flavor debug build** (v0.0.1) for demo purposes. As it's not from the Play Store, Android will require you to allow installation from "Unknown Sources".
 
 ### Installation Steps:
 1. Download the APK above
@@ -208,13 +208,13 @@ final List<String> _expenseCategories = [
   'Food',
   'Housing',
   'Transport',
-  'Your New Category',  // Add here
+  'Your New Category',
 ];
 
 final List<String> _incomeCategories = [
   'Salary',
   'Business',
-  'Your New Source',  // Add here
+  'Your New Source',
 ];
 ```
 
@@ -226,7 +226,6 @@ Edit the currency list in `settings_body.dart`:
 final currencies = [
   {'code': 'USD', 'name': 'US Dollar', 'symbol': '\$'},
   {'code': 'YOUR_CODE', 'name': 'Your Currency', 'symbol': 'X'},
-  // Add more currencies here
 ];
 ```
 
