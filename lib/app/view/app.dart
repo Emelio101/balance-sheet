@@ -2,7 +2,6 @@ import 'package:auth_repo/auth_repo.dart';
 import 'package:balance_sheet/app/theme/theme_cubit.dart';
 import 'package:balance_sheet/dashboard/cubit/dashboard_cubit.dart';
 import 'package:balance_sheet/home/cubit/home_cubit.dart';
-import 'package:balance_sheet/home/view/home_page.dart';
 import 'package:balance_sheet/settings/cubit/settings_cubit.dart';
 import 'package:balance_sheet/splash/view/splash_page.dart';
 import 'package:balance_sheet/transactions/cubit/transactions_cubit.dart';

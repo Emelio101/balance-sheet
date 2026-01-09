@@ -59,7 +59,6 @@ class TransactionItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           side: BorderSide(
             color: Colors.grey.shade200,
-            width: 1,
           ),
         ),
         child: InkWell(

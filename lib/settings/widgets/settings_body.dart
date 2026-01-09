@@ -336,7 +336,6 @@ class _SettingsBodyState extends State<SettingsBody> {
         showSuccessSnackBar(
           context,
           message: 'Opening link...',
-          seconds: 2,
         );
       } else {
         _showLaunchError(context, urlString);

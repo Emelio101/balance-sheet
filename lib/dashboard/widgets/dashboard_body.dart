@@ -35,7 +35,6 @@ class DashboardBody extends StatelessWidget {
                   slivers: [
                     SliverAppBar(
                       expandedHeight: 120,
-                      floating: false,
                       pinned: true,
                       backgroundColor: Colors.transparent,
                       flexibleSpace: const FlexibleSpaceBar(
@@ -188,7 +187,7 @@ class DashboardBody extends StatelessWidget {
       Colors.amber,
     ];
 
-    int colorIndex = 0;
+    var colorIndex = 0;
     final sections = expensesByCategory.entries.map((entry) {
       final color = colors[colorIndex % colors.length];
       colorIndex++;
@@ -291,7 +290,6 @@ class DashboardBody extends StatelessWidget {
               child: LineChart(
                 LineChartData(
                   gridData: FlGridData(
-                    show: true,
                     drawVerticalLine: false,
                     horizontalInterval: 1000,
                     getDrawingHorizontalLine: (value) {
@@ -365,7 +363,6 @@ class DashboardBody extends StatelessWidget {
                       barWidth: 3,
                       isStrokeCapRound: true,
                       dotData: FlDotData(
-                        show: true,
                         getDotPainter: (spot, percent, barData, index) {
                           return FlDotCirclePainter(
                             radius: 4,
@@ -380,7 +377,7 @@ class DashboardBody extends StatelessWidget {
                         gradient: LinearGradient(
                           colors: [
                             const Color(0xFF10B981).withOpacity(0.3),
-                            const Color(0xFF10B981).withOpacity(0.0),
+                            const Color(0xFF10B981).withOpacity(0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -401,7 +398,6 @@ class DashboardBody extends StatelessWidget {
                       barWidth: 3,
                       isStrokeCapRound: true,
                       dotData: FlDotData(
-                        show: true,
                         getDotPainter: (spot, percent, barData, index) {
                           return FlDotCirclePainter(
                             radius: 4,
@@ -416,7 +412,7 @@ class DashboardBody extends StatelessWidget {
                         gradient: LinearGradient(
                           colors: [
                             const Color(0xFFEF4444).withOpacity(0.3),
-                            const Color(0xFFEF4444).withOpacity(0.0),
+                            const Color(0xFFEF4444).withOpacity(0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -449,7 +445,7 @@ class DashboardBody extends StatelessWidget {
   ) {
     final avgExpense =
         cubit.totalExpenses /
-        (cubit.expensesByCategory.length > 0
+        (cubit.expensesByCategory.isNotEmpty
             ? cubit.expensesByCategory.length
             : 1);
 

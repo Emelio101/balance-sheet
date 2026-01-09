@@ -4,7 +4,7 @@ class SettingsState extends Equatable {
   const SettingsState({
     this.isDarkMode = false,
     this.currency = 'ZMW',
-    this.currencySymbol = r'K',
+    this.currencySymbol = 'K',
   });
 
   final bool isDarkMode;

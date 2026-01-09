@@ -23,7 +23,7 @@ class _SplashBodyState extends State<SplashBody> {
     _navigateToHome();
   }
 
-  void _navigateToHome() async {
+  Future<void> _navigateToHome() async {
     // Wait for 3 seconds
     await Future.delayed(const Duration(seconds: 3));
 

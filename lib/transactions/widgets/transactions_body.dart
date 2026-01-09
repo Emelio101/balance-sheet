@@ -230,7 +230,7 @@ class TransactionsBody extends StatelessWidget {
   List<Map<String, dynamic>> _groupTransactionsByDate(
     List<TransactionModel> transactions,
   ) {
-    final Map<String, List<TransactionModel>> grouped = {};
+    final grouped = <String, List<TransactionModel>>{};
 
     for (final transaction in transactions) {
       final dateKey = _getDateKey(transaction.date);
