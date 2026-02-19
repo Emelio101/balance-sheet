@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:balance_sheet/splash/cubit/cubit.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -7,7 +5,7 @@ void main() {
   group('SplashState', () {
     test('supports value equality', () {
       expect(
-        SplashState(),
+        const SplashState(),
         equals(
           const SplashState(),
         ),
@@ -45,7 +43,7 @@ void main() {
           const splashState = SplashState(
             customProperty: 'My property',
           );
-          final otherSplashState = SplashState(
+          const otherSplashState = SplashState(
             customProperty: 'My property 2',
           );
           expect(splashState, isNot(equals(otherSplashState)));

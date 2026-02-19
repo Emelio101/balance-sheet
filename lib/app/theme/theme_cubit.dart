@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:auth_repo/auth_repo.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -7,7 +9,7 @@ part 'theme_state.dart';
 
 class ThemeCubit extends Cubit<ThemeState> {
   ThemeCubit({required this.authRepo}) : super(const ThemeState()) {
-    _loadTheme();
+    unawaited(_loadTheme());
   }
 
   final AuthRepo authRepo;
@@ -17,7 +19,7 @@ class ThemeCubit extends Cubit<ThemeState> {
       final themeIndex = await authRepo.getTheme();
       final themeMode = themeIndex == 0 ? ThemeMode.light : ThemeMode.dark;
       emit(state.copyWith(mode: themeMode));
-    } catch (e) {
+    } on Exception {
       // Fallback to light theme
       emit(state.copyWith(mode: ThemeMode.light));
     }

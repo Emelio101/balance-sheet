@@ -39,8 +39,8 @@ class TransactionDetailsDialog extends StatelessWidget {
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    color.withOpacity(0.2),
-                    color.withOpacity(0.1),
+                    color.withValues(alpha: 0.2),
+                    color.withValues(alpha: 0.1),
                   ],
                 ),
                 shape: BoxShape.circle,
@@ -225,8 +225,8 @@ class TransactionDetailsDialog extends StatelessWidget {
     return '${months[date.month - 1]} ${date.day}, ${date.year}';
   }
 
-  void _deleteTransaction(BuildContext context) {
-    showDialog(
+  Future<void> _deleteTransaction(BuildContext context) async {
+    await showDialog<void>(
       context: context,
       builder: (dialogContext) => AlertDialog(
         shape: RoundedRectangleBorder(

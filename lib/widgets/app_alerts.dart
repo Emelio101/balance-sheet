@@ -25,15 +25,15 @@ void showSuccessSnackBar(
   }
 }
 
-void showErrorSnackBar(
+Future<void> showErrorSnackBar(
   BuildContext context, {
   String message = '',
   int seconds = 4,
   VoidCallback? onClosed,
-}) {
+}) async {
   if (context.mounted) {
     final snackBar = defaultSnackBar(message, seconds, MessageType.error);
-    ScaffoldMessenger.of(context).showSnackBar(snackBar).closed.then((_) {
+    await ScaffoldMessenger.of(context).showSnackBar(snackBar).closed.then((_) {
       onClosed?.call();
     });
   }

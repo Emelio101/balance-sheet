@@ -25,7 +25,9 @@ class DashboardBody extends StatelessWidget {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                      Theme.of(
+                        context,
+                      ).colorScheme.primary.withValues(alpha: 0.1),
                       Theme.of(context).colorScheme.surface,
                     ],
                     stops: const [0.0, 0.3],
@@ -146,7 +148,7 @@ class DashboardBody extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
           side: BorderSide(
-            color: Theme.of(context).colorScheme.outline.withOpacity(0.2),
+            color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.2),
           ),
         ),
         child: Container(
@@ -242,7 +244,7 @@ class DashboardBody extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
         side: BorderSide(
-          color: Theme.of(context).colorScheme.outline.withOpacity(0.2),
+          color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.2),
         ),
       ),
       child: Padding(
@@ -257,7 +259,7 @@ class DashboardBody extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Theme.of(
                       context,
-                    ).colorScheme.primary.withOpacity(0.1),
+                    ).colorScheme.primary.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Icon(
@@ -376,8 +378,8 @@ class DashboardBody extends StatelessWidget {
                         show: true,
                         gradient: LinearGradient(
                           colors: [
-                            const Color(0xFF10B981).withOpacity(0.3),
-                            const Color(0xFF10B981).withOpacity(0),
+                            const Color(0xFF10B981).withValues(alpha: 0.3),
+                            const Color(0xFF10B981).withValues(alpha: 0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -411,8 +413,8 @@ class DashboardBody extends StatelessWidget {
                         show: true,
                         gradient: LinearGradient(
                           colors: [
-                            const Color(0xFFEF4444).withOpacity(0.3),
-                            const Color(0xFFEF4444).withOpacity(0),
+                            const Color(0xFFEF4444).withValues(alpha: 0.3),
+                            const Color(0xFFEF4444).withValues(alpha: 0),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -454,7 +456,7 @@ class DashboardBody extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
         side: BorderSide(
-          color: Theme.of(context).colorScheme.outline.withOpacity(0.2),
+          color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.2),
         ),
       ),
       child: Padding(
@@ -469,7 +471,7 @@ class DashboardBody extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Theme.of(
                       context,
-                    ).colorScheme.primary.withOpacity(0.1),
+                    ).colorScheme.primary.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Icon(
@@ -520,7 +522,7 @@ class DashboardBody extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: color.withOpacity(0.1),
+              color: color.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Icon(icon, color: color, size: 20),

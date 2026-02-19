@@ -75,7 +75,7 @@ class _AddTransactionDialogState extends State<AddTransactionDialog> {
                         decoration: BoxDecoration(
                           color: Theme.of(
                             context,
-                          ).colorScheme.primary.withOpacity(0.1),
+                          ).colorScheme.primary.withValues(alpha: 0.1),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Icon(
@@ -147,7 +147,9 @@ class _AddTransactionDialogState extends State<AddTransactionDialog> {
                       ),
                       prefixIcon: const Icon(Icons.title_rounded),
                       filled: true,
-                      fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+                      fillColor: Theme.of(
+                        context,
+                      ).colorScheme.surfaceContainerHighest,
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -169,7 +171,9 @@ class _AddTransactionDialogState extends State<AddTransactionDialog> {
                       ),
                       prefixIcon: const Icon(Icons.attach_money_rounded),
                       filled: true,
-                      fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+                      fillColor: Theme.of(
+                        context,
+                      ).colorScheme.surfaceContainerHighest,
                     ),
                     keyboardType: const TextInputType.numberWithOptions(
                       decimal: true,
@@ -204,7 +208,9 @@ class _AddTransactionDialogState extends State<AddTransactionDialog> {
                       ),
                       prefixIcon: const Icon(Icons.category_rounded),
                       filled: true,
-                      fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+                      fillColor: Theme.of(
+                        context,
+                      ).colorScheme.surfaceContainerHighest,
                     ),
                     items:
                         (_selectedType == TransactionType.income
@@ -258,7 +264,9 @@ class _AddTransactionDialogState extends State<AddTransactionDialog> {
                         ),
                         prefixIcon: const Icon(Icons.calendar_today_rounded),
                         filled: true,
-                        fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+                        fillColor: Theme.of(
+                          context,
+                        ).colorScheme.surfaceContainerHighest,
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -285,7 +293,9 @@ class _AddTransactionDialogState extends State<AddTransactionDialog> {
                       ),
                       prefixIcon: const Icon(Icons.notes_rounded),
                       filled: true,
-                      fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+                      fillColor: Theme.of(
+                        context,
+                      ).colorScheme.surfaceContainerHighest,
                       alignLabelWithHint: true,
                     ),
                     maxLines: 3,

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:balance_sheet/dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -10,7 +8,7 @@ void main() {
       await tester.pumpWidget(
         BlocProvider(
           create: (context) => DashboardCubit(),
-          child: MaterialApp(home: DashboardBody()),
+          child: const MaterialApp(home: DashboardBody()),
         ),
       );
 

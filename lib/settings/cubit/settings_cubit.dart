@@ -6,7 +6,7 @@ part 'settings_state.dart';
 class SettingsCubit extends Cubit<SettingsState> {
   SettingsCubit() : super(const SettingsState());
 
-  void updateThemePreference(bool isDarkMode) {
+  void updateThemePreference({required bool isDarkMode}) {
     emit(state.copyWith(isDarkMode: isDarkMode));
   }
 

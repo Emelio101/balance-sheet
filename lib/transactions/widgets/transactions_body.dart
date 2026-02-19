@@ -40,8 +40,8 @@ class TransactionsBody extends StatelessWidget {
               ),
               body: _buildBody(state, context, settingsState.currencySymbol),
               floatingActionButton: FloatingActionButton.extended(
-                onPressed: () {
-                  showDialog(
+                onPressed: () async {
+                  await showDialog<void>(
                     context: context,
                     builder: (dialogContext) => BlocProvider.value(
                       value: context.read<TransactionsCubit>(),
@@ -142,8 +142,8 @@ class TransactionsBody extends StatelessWidget {
                   return TransactionItem(
                     transaction: transaction,
                     currencySymbol: currencySymbol,
-                    onTap: () {
-                      showDialog(
+                    onTap: () async {
+                      await showDialog<void>(
                         context: context,
                         builder: (dialogContext) => BlocProvider.value(
                           value: context.read<TransactionsCubit>(),

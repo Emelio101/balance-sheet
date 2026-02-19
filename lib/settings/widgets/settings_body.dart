@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:balance_sheet/app/theme/theme_cubit.dart';
 import 'package:balance_sheet/settings/cubit/settings_cubit.dart';
 import 'package:balance_sheet/widgets/app_alerts.dart';
@@ -19,7 +21,7 @@ class _SettingsBodyState extends State<SettingsBody> {
   @override
   void initState() {
     super.initState();
-    _loadAppVersion();
+    unawaited(_loadAppVersion());
   }
 
   Future<void> _loadAppVersion() async {
@@ -62,6 +64,9 @@ class _SettingsBodyState extends State<SettingsBody> {
                             value: themeState.mode == ThemeMode.dark,
                             onChanged: (value) async {
                               await context.read<ThemeCubit>().toggleTheme();
+
+                              if (!context.mounted) return;
+
                               final newTheme = value ? 'Dark' : 'Light';
                               showSuccessSnackBar(
                                 context,
@@ -91,8 +96,8 @@ class _SettingsBodyState extends State<SettingsBody> {
                             Icons.arrow_forward_ios,
                             size: 16,
                           ),
-                          onTap: () {
-                            _showCurrencyPicker(context);
+                          onTap: () async {
+                            await _showCurrencyPicker(context);
                           },
                         ),
                       ),
@@ -257,7 +262,7 @@ class _SettingsBodyState extends State<SettingsBody> {
     );
   }
 
-  void _showCurrencyPicker(BuildContext context) {
+  Future<void> _showCurrencyPicker(BuildContext context) async {
     final currencies = [
       {'code': 'ZMW', 'name': 'Zambian Kwacha', 'symbol': 'K'},
       {'code': 'USD', 'name': 'US Dollar', 'symbol': r'$'},
@@ -269,7 +274,7 @@ class _SettingsBodyState extends State<SettingsBody> {
       {'code': 'KES', 'name': 'Kenyan Shilling', 'symbol': 'KSh'},
     ];
 
-    showModalBottomSheet(
+    await showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext sheetContext) {
         return Container(
@@ -332,21 +337,25 @@ class _SettingsBodyState extends State<SettingsBody> {
           url,
           mode: LaunchMode.externalApplication,
         );
-        // Show success snackbar when URL launches successfully
+
+        if (!context.mounted) return;
+
         showSuccessSnackBar(
           context,
           message: 'Opening link...',
         );
       } else {
-        _showLaunchError(context, urlString);
+        if (!context.mounted) return;
+        await _showLaunchError(context, urlString);
       }
-    } catch (e) {
-      _showLaunchError(context, urlString);
+    } on Exception {
+      if (!context.mounted) return;
+      await _showLaunchError(context, urlString);
     }
   }
 
-  void _showLaunchError(BuildContext context, String urlString) {
-    showErrorSnackBar(
+  Future<void> _showLaunchError(BuildContext context, String urlString) async {
+    await showErrorSnackBar(
       context,
       message: 'Could not open $urlString',
     );

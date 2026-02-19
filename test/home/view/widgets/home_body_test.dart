@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:balance_sheet/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -10,7 +8,7 @@ void main() {
       await tester.pumpWidget(
         BlocProvider(
           create: (context) => HomeCubit(),
-          child: MaterialApp(home: HomeBody()),
+          child: const MaterialApp(home: HomeBody()),
         ),
       );
 

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:balance_sheet/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -20,16 +22,15 @@ class _SplashBodyState extends State<SplashBody> {
   @override
   void initState() {
     super.initState();
-    _navigateToHome();
+    unawaited(_navigateToHome());
   }
 
   Future<void> _navigateToHome() async {
     // Wait for 3 seconds
-    await Future.delayed(const Duration(seconds: 3));
-
+    await Future<void>.delayed(const Duration(seconds: 3));
     if (mounted) {
       // Navigate to HomePage using your route pattern
-      Navigator.pushReplacement(
+      await Navigator.pushReplacement(
         context,
         HomePage.route(),
       );
@@ -73,7 +74,7 @@ class _AppNameState extends State<AppName> {
   @override
   void initState() {
     super.initState();
-    _loadAppName();
+    unawaited(_loadAppName());
   }
 
   Future<void> _loadAppName() async {
@@ -109,7 +110,7 @@ class _AppVersionState extends State<AppVersion> {
   @override
   void initState() {
     super.initState();
-    _loadVersion();
+    unawaited(_loadVersion());
   }
 
   Future<void> _loadVersion() async {

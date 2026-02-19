@@ -1,9 +1,13 @@
 import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
 
+/// {@template auth_repo}
+/// Repository for managing authentication and user preferences.
+/// {@endtemplate}
 class AuthRepo {
+  /// {@macro auth_repo}
   AuthRepo() {
-    _init();
+    unawaited(_init());
   }
 
   late SharedPreferences _prefs;
@@ -37,7 +41,8 @@ class AuthRepo {
     _themeController.add(themeMode);
   }
 
-  void dispose() {
-    _themeController.close();
+  /// Dispose the stream controller when done
+  Future<void> dispose() async {
+    await _themeController.close();
   }
 }
